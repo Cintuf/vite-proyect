@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import ItemDetail from '../../components/ItemDetail/ItemDetail'
+import { useParams } from 'react-router-dom'
+import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import { myPromise } from '../../Products/Tragos';
 import './ItemDetailContainer.css'
 
