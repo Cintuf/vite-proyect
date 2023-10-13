@@ -1,64 +1,70 @@
-* {
-  margin: 0,
-  padding: 0,
-  box-sizing: border-box,
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
-html,
-body,
-#root {
-  margin: 0rem,
-  background-color: rgb(77, 75, 75),
-  color: white,
-  height: 100vh,
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
 }
-#root {
-  display: flex,
-  flex-direction: column,
-}
-#contenedor-titulo {
-  display: flex,
-  justify-content: center,
-  align-items: center,
-}
-#cart-widget {
-  width: 1.5rem,
-  height: 1.5rem,
-  display: flex,
-  justify-content: center,
-  align-items: center,
-}
-#contenido-header {
-  display: flex,
-  justify-content: space-between,
-  align-items: center,
-  padding: 0.5rem 1rem,
-  background-color: rgb(53, 51, 51),
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
-}
-main {
-  padding: 1rem,
-  flex-grow: 1,
+a:hover {
+  color: #535bf2;
 }
 
-footer {
-  background-color: rgb(53, 51, 51),
-  text-align: center,
-  padding: 0.5rem,
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
-.columna-header {
-  display: flex,
-  justify-content: center,
-  align-items: center,
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
-#logo-store {
-  width: 15rem,
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
-/* .mensaje-props {
-  text-align: center,
-  background-color: rgb(53, 51, 51),
-} */
-.mensaje-props:hover {
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4),
-  transform: translateY(-3%),
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }

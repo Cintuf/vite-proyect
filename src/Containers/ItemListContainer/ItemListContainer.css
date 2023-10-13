@@ -1,0 +1,16 @@
+
+
+#div__loading {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+}
+#text__waiting {
+    text-align: center;
+}
+
+#img__loading {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}

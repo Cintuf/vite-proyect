@@ -1,0 +1,36 @@
+#card{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 50px;
+    width: fit-content;
+}
+
+.card__img {
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#product__name {
+    font-size: 1.8rem;
+}
+
+#product__price {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+p{
+    margin: .5rem;
+}
+
+button {
+    background-color: rgba(102, 150, 204, 0.753);
+    border: 1px solid black;
+    padding: .7rem;
+    font-weight: 600;
+    cursor: pointer;
+}

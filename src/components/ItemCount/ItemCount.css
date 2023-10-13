@@ -1,0 +1,13 @@
+#item__count{
+    display: flex;
+    justify-content: center;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+p{
+    font-weight: bold;
+    font-size: 1.6rem;
+}
