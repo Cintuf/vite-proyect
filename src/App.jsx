@@ -1,9 +1,8 @@
 import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './Containers/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import ItemDetailContainer from './Containers/ItemDeatilContainer/ItemDetailContainer';
+import ItemDetailContainer from './Containers/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   let saludo = 'My Store'
