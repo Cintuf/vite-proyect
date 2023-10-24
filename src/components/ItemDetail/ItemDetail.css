@@ -1,0 +1,22 @@
+
+#contenedor{
+    color: black;
+}
+.imgItemDetail{
+    width: auto;
+    height: 250px;
+}
+
+
+.colItemDetail, .cardItemDetail{
+    padding: 0;
+    margin: 5px;
+    width: fit-content;
+    min-width: 330px;
+    max-width: 330px;
+    color: rgba(255, 217, 0, 0.587);
+}
+
+.cardItemDetailHeader, .cardItemDetailBody, .cardItemDetailFooter, .colItemDetailBody{
+    padding: 10px;
+}

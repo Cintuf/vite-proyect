@@ -1,0 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+/* font-family: 'Satisfy', cursive; */
+#greeting {
+    font-family: 'Satisfy', cursive;
+    margin-top: 20px;
+    font-size: 50px;
+    color: rgba(0, 0, 0, 0.434);
+    text-shadow: 2px, black;
+}
+

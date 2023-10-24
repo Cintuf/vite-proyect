@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+/* font-family: 'Quicksand', sans-serif; */
+#form{
+    color: black;
+}
+
+.inputs{
+    margin: 5px;
+    width: 500px;
+}
+
+#formText{
+    font-family: 'Quicksand', sans-serif;
+    color: beige;
+}
+
+#btnCompra{
+    color: white
+}
