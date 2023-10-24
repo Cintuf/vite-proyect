@@ -1,14 +1,20 @@
 
-body{
-  background-color: #443a34;
-  background-image: linear-gradient(62deg, #443a34 0%, #ee7a66 100%);
-  background-size: cover;
+#root {
+  width: 2000px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(158, 136, 8, 0.587);
+  
 }
 
-button{
-  font-size: 1.6rem;
+
+
+
+.card {
+  padding: 2em;
 }
 
-p{
-  font-size: 1.6rem;
+.read-the-docs {
+  color: #888;
 }
