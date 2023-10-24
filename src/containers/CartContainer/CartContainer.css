@@ -1,0 +1,10 @@
+#cardCartContainer{
+    width: fit-content;
+}
+.btnContBuy a{
+    color: white;
+    font-weight: normal;
+}
+.btnContBuy{
+    margin-left: 5px;
+}
