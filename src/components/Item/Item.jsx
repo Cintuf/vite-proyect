@@ -9,7 +9,7 @@ const Item = ({product}) => {
     >
       <div className="card cardItem col-md-4" >
         <div className="card-header">
-          <p>Terminos y condiciones bajo subscripcion, prohibida la venta a menores de 18 años</p>
+          <p>prohibida su venta a menores de 18 años</p>
           <h3>{`${product.Name}`}</h3>
         </div>
     
