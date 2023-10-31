@@ -11,7 +11,7 @@ import Form from './components/Form/Form';
 
 
 function App() {
-  let saludo = 'My Store'
+  let saludo = 'Store'
   return (
     <CartContextProvider >
       <BrowserRouter>
