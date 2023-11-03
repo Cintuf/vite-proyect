@@ -13,8 +13,9 @@ function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-            <NavLink className="navBarLinks" to="/category/Destilados">Licores</NavLink>
+            <NavLink className="navBarLinks" to="/category/Destilados">Destilados</NavLink>
             <NavLink className="navBarLinks" to="/category/Cervezas">Cervezas</NavLink>
+            <NavLink className="navBarLinks" to="/category/Aperitivos">Aperitivos</NavLink>
             <NavLink className='navBarLinks' to="/cart"><CartWidget /></NavLink>
           </Nav>
         </Navbar.Collapse>
