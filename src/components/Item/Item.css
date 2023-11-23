@@ -3,8 +3,8 @@
 .wrapper {
   display: grid;
   margin: 1rem;
-  column-gap: 3;
-  row-gap: 3;
+  column-gap: 3px;
+  row-gap: 3px;
   justify-items: center;
 
 }
