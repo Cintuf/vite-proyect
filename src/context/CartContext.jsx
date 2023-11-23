@@ -57,7 +57,7 @@ export const CartContextProvider = ({ children }) => {
       .finally(() => {
         vaciarCarrito();
         setShowSuccessMessage(false);
-        history.push("../index.html"); 
+        history.push("https://vite-projects-sigma.vercel.app/"); 
       });
   };
 
