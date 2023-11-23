@@ -1,7 +1,7 @@
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useContext, useState, createContext } from "react";
 import Swal from 'sweetalert2';
-import { useHistory } from "react-router-dom";
+
 
 export const CartContext = createContext([]);
 export const useCartContext = () => useContext(CartContext);
