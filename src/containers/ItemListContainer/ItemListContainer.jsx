@@ -9,13 +9,13 @@ import Greeting from '../../components/Greeting/Greeting'
 const ItemListContainer = ({ saludo }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-    const { category } = useParams() // Cambiado de 'id' a 'category'
+    const { category } = useParams() 
 
     useEffect(() => {
         const db = getFirestore()
         const productsCollection = collection(db, 'productos')
 
-        // Construir la consulta con o sin filtro por categoría
+       
         const queryFilter = category
             ? query(productsCollection, where('Category', '==', category), orderBy('Price', 'asc'), where('isActive', '==', true))
             : productsCollection
