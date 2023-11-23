@@ -95,7 +95,6 @@ export const CartContextProvider = ({ children }) => {
       {showSuccessMessage && (
         <div>
           <p>¡Compra exitosa! Tu ID de seguimiento es: {resp.id}</p>
-          {/* Puedes agregar estilos o cualquier otro contenido adicional aquí */}
         </div>
       )}
     </CartContext.Provider>
