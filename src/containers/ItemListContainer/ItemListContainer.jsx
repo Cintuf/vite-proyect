@@ -1,4 +1,4 @@
-mport { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './ItemListContainer.css'
 import { useParams } from 'react-router-dom'
 import { collection, getDocs, getFirestore, orderBy, query, where } from 'firebase/firestore'
