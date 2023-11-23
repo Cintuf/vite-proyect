@@ -44,3 +44,5 @@ const ItemListContainer = ({ saludo }) => {
         </section>
     )
 }
+
+export default ItemListContainer
