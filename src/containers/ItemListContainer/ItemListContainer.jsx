@@ -1,43 +1,46 @@
-import { useState, useEffect } from 'react';
+mport { useState, useEffect } from 'react';
 import './ItemListContainer.css'
 import { useParams } from 'react-router-dom'
-import { collection, getDocs, getFirestore, query, where, orderBy } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, orderBy, query, where } from 'firebase/firestore'
 import ItemList from '../../components/ItemList/ItemList'
 import Loading from '../../components/Loading/Loading'
-import Greeting from '../../components/Greeting/Greeting'
 
+
+
+import Greeting from '../../components/Greeting/Greeting'
 const ItemListContainer = ({ saludo }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-    const { category } = useParams() 
+    const { id } = useParams()
 
     useEffect(() => {
-        const db = getFirestore()
-        const productsCollection = collection(db, 'productos')
 
-       
-        const queryFilter = category
-            ? query(productsCollection, where('Category', '==', category), orderBy('Price', 'asc'), where('isActive', '==', true))
-            : productsCollection
+        const db = getFirestore()
+        const queryCollection = collection(db, 'productos')
+        const queryFilter = id ? query(queryCollection, where('Category', '==', 'id'), orderBy('Price', 'asc'), where('isActive', '==', true)) : queryCollection
 
         getDocs(queryFilter)
             .then(data => setProducts(data.docs.map(product => ({ id: product.id, ...product.data() }))))
             .catch(err => console.log(err))
             .finally(() => setLoading(false))
-    }, [category])
+
+    }, [id])
 
     return (
+
         <section>
+
             {loading ?
                 <Loading />
                 :
                 <div>
+
                     <Greeting saludo={saludo} />
                     <ItemList products={products} />
+
                 </div>
             }
+
         </section>
     )
 }
-
-export default ItemListContainer
