@@ -35,6 +35,9 @@
   margin: 0;
 }
 
+.w-25 {
+  width: auto;
+}
 
 .card-footer{
   color: black;
