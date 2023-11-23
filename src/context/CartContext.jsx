@@ -1,92 +1,99 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore"
-import { useContext, useState, createContext } from "react"
-export const CartContext = createContext([])
-export const useCartContext = ()=> useContext(CartContext)
-export const CartContextProvider = ({children})=>{
-    const [cartList, setCartList] = useState([])
-    
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { useContext, useState, createContext } from "react";
+import Swal from 'sweetalert2';
 
-    const addToCard=(products)=>{
-        const idx = cartList.findIndex(prod => prod.id === products.id) 
-        
-        if(idx !== -1){
-            cartList[idx].cant += products.cant
-            setCartList([ ... cartList ])
-        }else{
-            setCartList([...cartList, products])
-        }
+export const CartContext = createContext([]);
+export const useCartContext = () => useContext(CartContext);
+
+export const CartContextProvider = ({ children }) => {
+  const [cartList, setCartList] = useState([]);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  const addToCard = (products) => {
+    const idx = cartList.findIndex((prod) => prod.id === products.id);
+
+    if (idx !== -1) {
+      cartList[idx].cant += products.cant;
+      setCartList([...cartList]);
+    } else {
+      setCartList([...cartList, products]);
     }
+  };
 
-    const deleteToCard=()=>{
-        setCartList([])
-    }
+  const deleteToCard = () => {
+    setCartList([]);
+  };
 
+  const totalPrice = () =>
+    cartList.reduce((contador, producto) => contador + producto.Price * producto.cant, 0);
 
-    const totalPrice = ()=> cartList.reduce((contador, producto)=> contador += (producto.Price * producto.cant), 0)
+  const totalCant = () => cartList.reduce((contador, producto) => contador + producto.cant, 0);
 
+  const deleteItem = (id) => {
+    setCartList(cartList.filter((prod) => prod.id !== id));
+  };
 
-    const totalCant = ()=> cartList.reduce((contador, producto)=> contador += producto.cant, 0)
+  const addOrder = (e) => {
+    e.preventDefault();
+    const order = {};
+    order.buyer = dataForm;
+    order.price = totalPrice(); 
+    order.items = cartList.map(({ id, Price, Category, cant }) => ({ id, Price, Category, cant }));
 
+    const db = getFirestore();
+    const queryCollection = collection(db, "orders");
 
-    const deleteItem = (id) => {
-        setCartList(cartList.filter(prod=> prod.id !== id))
-    }
-
-    const addOrder = (e)=>{
-        e.preventDefault()
-        const order = {}
-        order.buyer = dataForm
-        order.price = precioTotal()
-        order.items = cartList.map(({id, Price, Category, cant}) => ({id, Price, Category, cant}))
-        const db = getFirestore()
-        const queryCollection = collection(db, 'orders')
-        addDoc(queryCollection, order)
-        .then(resp => Swal.fire({
-            title: "Compra Exitosa",
-            text: `Disfruta tu compra, tu id de seguimiento es: ${resp.id}`
-          }))
-        .catch(err => console.log(err))
-        .finally(()=>vaciarCarrito())
-    }
-    const [dataForm, setDataForm]= useState({
-        name: '',
-        lastname: '',
-        phone: '',
-        document: '',
-        email: '',
-        email2: ''
+    addDoc(queryCollection, order)
+      .then((resp) => {
+        setShowSuccessMessage(true);
+        Swal.fire({
+          title: "Compra Exitosa",
+          text: `Disfruta tu compra, tu id de seguimiento es: ${resp.id}`,
+        });
       })
-    const handleOnChange = (e)=>{
-        console.log('nombre del input: ',(e.target.name))
-        console.log('valor del input: ',(e.target.value))
-        setDataForm({
-            ...dataForm,
-            [e.target.name]: e.target.value
-        })
-      }
+      .catch((err) => console.log(err))
+      .finally(() => {
+        vaciarCarrito();
+        setShowSuccessMessage(false); 
+      });
+  };
 
+  const [dataForm, setDataForm] = useState({
+    name: "",
+    lastname: "",
+    phone: "",
+    document: "",
+    email: "",
+    email2: "",
+  });
 
-    return (
-        <CartContext.Provider value={{
-            cartList,
-            addToCard,
-            deleteToCard,
-            totalPrice,
-            totalCant,
-            deleteItem,
-            addOrder,
-            handleOnChange,
-            dataForm,
+  const handleOnChange = (e) => {
+    setDataForm({
+      ...dataForm,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-
-            
-
-            
-            
-        }}>
-
-            {children}
-        </CartContext.Provider>
-
-    )
-} 
+  return (
+    <CartContext.Provider
+      value={{
+        cartList,
+        addToCard,
+        deleteToCard,
+        totalPrice,
+        totalCant,
+        deleteItem,
+        addOrder,
+        handleOnChange,
+        dataForm,
+      }}
+    >
+      {children}
+      {showSuccessMessage && (
+        <div>
+          <p>¡Compra exitosa! Tu ID de seguimiento es: {resp.id}</p>
+        </div>
+      )}
+    </CartContext.Provider>
+  );
+};
